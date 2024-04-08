@@ -5,6 +5,6 @@ public class ContactList {
 
     static void AddContacts(){
         System.out.println("Nombre:");
-
+        nombre
     }
 }
