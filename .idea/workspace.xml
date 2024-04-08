@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e70ff384-a6b7-4ebd-8da6-df3daff8b221" name="Changes" comment="ListaContactosV1.2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e70ff384-a6b7-4ebd-8da6-df3daff8b221" name="Changes" comment="ListaContactosV1.3">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ContactList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ContactList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Contacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Contact.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +68,21 @@
       <option name="project" value="LOCAL" />
       <updated>1712559933514</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ListaContactosV1.3">
+      <created>1712560512245</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1712560512245</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ListaContactosV1.3">
+      <created>1712560527706</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1712560527706</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,6 +100,7 @@
     <MESSAGE value="ListaContactosV1.0" />
     <MESSAGE value="ListaContactosV1.1" />
     <MESSAGE value="ListaContactosV1.2" />
-    <option name="LAST_COMMIT_MESSAGE" value="ListaContactosV1.2" />
+    <MESSAGE value="ListaContactosV1.3" />
+    <option name="LAST_COMMIT_MESSAGE" value="ListaContactosV1.3" />
   </component>
 </project>
