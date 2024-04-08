@@ -17,5 +17,9 @@ public class ContactList {
         contactList.add(new Contact(name,email,phoneNumber));
     }
 
-
+    static void ShowContacts(){
+        for (int i = 0; i < contactList.size(); i++) {
+            System.out.println(contactList.get(i));
+        }
+    }
 }

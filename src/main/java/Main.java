@@ -14,6 +14,8 @@ public class Main {
             case 1:
                 ContactList.AddContacts();
                 break;
+            case 2:
+                ContactList.ShowContacts();
             default:
                 break;
         }
