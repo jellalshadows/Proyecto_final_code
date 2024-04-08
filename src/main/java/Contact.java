@@ -1,9 +1,9 @@
-public class Contacts {
+public class Contact {
     private String name;
     private String email;
     private String phone_number;
 
-    public Contacts(String name, String email, String phone_number) {
+    public Contact(String name, String email, String phone_number) {
         this.name = name;
         this.email = email;
         this.phone_number = phone_number;
