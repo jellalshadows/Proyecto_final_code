@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e70ff384-a6b7-4ebd-8da6-df3daff8b221" name="Changes" comment="ListaContactosV1.3">
+    <list default="true" id="e70ff384-a6b7-4ebd-8da6-df3daff8b221" name="Changes" comment="validacion de email">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ContactList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ContactList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,13 +33,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "E:/CODE/Proyecto Final/ListaContactos"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/CODE/Proyecto Final/ListaContactos&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -118,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1712561469274</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="validacion de email">
+      <created>1712910309451</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1712910309451</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,22 +145,7 @@
     <MESSAGE value="ListaContactosV1.1" />
     <MESSAGE value="ListaContactosV1.2" />
     <MESSAGE value="ListaContactosV1.3" />
-    <option name="LAST_COMMIT_MESSAGE" value="ListaContactosV1.3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ContactList.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ContactList.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="validacion de email" />
+    <option name="LAST_COMMIT_MESSAGE" value="validacion de email" />
   </component>
 </project>

@@ -39,4 +39,6 @@ public class Contact {
                 ", email='" + email + '\'' +
                 ", phone_number='" + phone_number;
     }
+
+
 }

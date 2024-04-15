@@ -11,28 +11,25 @@ public class ContactList {
     static final String EMAIL_REGEX="^[a-z0-9A-Z]+@[a-zA-Z]+\\.[a-zA-Z]+$";
     static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
 
-    static Scanner src=new Scanner(System.in);
+    static Scanner read =new Scanner(System.in);
     static void AddContacts(){
 
         System.out.println("Name:");
         String name;
-        name=src.nextLine();
+        name= read.nextLine();
         System.out.println("e-mail:");
-        String email = src.next();
+        String email = read.next();
         if (isValidEmail(email)){
             System.out.println("Phone number:");
             String phoneNumber;
-            phoneNumber=src.next();
+            phoneNumber= read.next();
             contactList.add(new Contact(name,email,phoneNumber));
         }else{
-            while (isValidEmail(email)==false){
+            while (!isValidEmail(email)){
                 System.out.println("email invalido, vuelva a intentar:");
-                email= src.next();
+                email= read.next();
             }
         }
-
-
-
     }
 
     static void ShowContacts(){
