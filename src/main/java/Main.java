@@ -8,7 +8,8 @@ public class Main {
             System.out.println("What do you want to do?:");
             System.out.println("1.Add new contact");
             System.out.println("2.Show contacts list");
-            System.out.println("3.exit");
+            System.out.println("3.Search contact");
+            System.out.println("4.exit");
             option=src.nextInt();
 
             switch (option){
@@ -17,6 +18,10 @@ public class Main {
                     break;
                 case 2:
                     ContactList.ShowContacts();
+                    break;
+                case 3:
+                    ContactList.SearchContacts();
+                    break;
                 default:
                     break;
             }

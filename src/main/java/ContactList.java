@@ -28,12 +28,22 @@ public class ContactList {
             String phoneNumber;
             phoneNumber= read.nextLine();
             contactList.add(new Contact(name,email,phoneNumber));
-
     }
 
     static void ShowContacts(){
         for (int i = 0; i < contactList.size(); i++) {
             System.out.println(contactList.get(i));
+        }
+    }
+
+    static void SearchContacts(){
+        System.out.println("Type the name of the contact you want to search for:");
+        String searchContact= read.nextLine();
+
+        for (int i = 0; i < contactList.size(); i++) {
+            if (searchContact.equals(contactList.get(i).getName())){
+                System.out.println(contactList.get(i));
+            }
         }
     }
 
