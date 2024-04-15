@@ -18,18 +18,17 @@ public class ContactList {
         String name;
         name= read.nextLine();
         System.out.println("e-mail:");
-        String email = read.next();
-        if (isValidEmail(email)){
+        String email = read.nextLine();
+
+        while (!isValidEmail(email)){
+            System.out.println("email invalido, vuelva a intentar:");
+            email= read.nextLine();
+        }
             System.out.println("Phone number:");
             String phoneNumber;
-            phoneNumber= read.next();
+            phoneNumber= read.nextLine();
             contactList.add(new Contact(name,email,phoneNumber));
-        }else{
-            while (!isValidEmail(email)){
-                System.out.println("email invalido, vuelva a intentar:");
-                email= read.next();
-            }
-        }
+
     }
 
     static void ShowContacts(){
