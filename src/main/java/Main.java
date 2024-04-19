@@ -1,9 +1,11 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Main {
+public class Main implements Serializable {
     static Scanner src=new Scanner(System.in);
     public static void main(String[] args) {
         int option;
+        ContactList.Deserialize();
         do{
             System.out.println("What do you want to do?:");
             System.out.println("1.Add new contact");
