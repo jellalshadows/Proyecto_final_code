@@ -37,9 +37,8 @@ public class Contact implements Serializable {
 
     @Override
     public String toString() {
-        return "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phone_number='" + phone_number;
+        String salida=String.format(" name: %s \n email: %s \n phone number: %s \n\n", name, email,phone_number);
+        return salida;
     }
 
 

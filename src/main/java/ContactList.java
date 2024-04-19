@@ -9,7 +9,7 @@ public class ContactList implements Serializable {
     * del @ como despues y luego del punto, existe al menos una o mas letras mayusculas o minusculas y que pueden haber numeros dentro de la expresion,
     * la doble barra inclinada se usa pq el punto tiene un significado especifico en las expresiones regulares, por lo tanto se escapa con una barra pero
     * la barra tambien tiene otro significado y hay que escapar tambien asique se usa otra barra y ya deberia estar bien */
-    static final String EMAIL_REGEX="^[a-z0-9A-Z]+@[a-zA-Z]+\\.[a-zA-Z]+$";
+    static final String EMAIL_REGEX="^[a-z0-9A-Z.]+@[a-zA-Z]+\\.[a-zA-Z]+$";
     static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
 
     static Scanner read =new Scanner(System.in);
