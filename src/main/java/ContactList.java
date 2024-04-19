@@ -50,7 +50,11 @@ public class ContactList implements Serializable {
         for (int i = 0; i < contactList.size(); i++) {
             if (searchContact.equals(contactList.get(i).getName())){
                 System.out.println(contactList.get(i));
+                break;
+            } else if (i==contactList.size()-1) {
+                System.out.println("The name does not exist");
             }
+
         }
     }
 
@@ -91,10 +95,66 @@ public class ContactList implements Serializable {
     }
 
     public static void ModifyContacts(){
-        System.out.println("");
+        int option;
+        String newPhoneNumber;
+        String newEmail;
+        String newName;
+        System.out.println("Write the phone number of the contact that you want to modify:");
+        String phone_number= read.nextLine();
+
+        for (int i = 0; i < contactList.size(); i++) {
+            if (contactList.get(i).getPhone_number().equals(phone_number)){
+                do {
+                    System.out.println("What do you want to modify?:");
+                    System.out.println("1.Name");
+                    System.out.println("2.Email");
+                    System.out.println("3.Phone Number");
+                    System.out.println("4.exit");
+                    option= read.nextInt();
+                    read.nextLine();
+                    switch (option){
+                        case 1:
+                            System.out.println("Write the new name:");
+                            newName= read.nextLine();
+                            contactList.get(i).setName(newName);
+                            break;
+                        case 2:
+                            System.out.println("Write the new email:");
+                            newEmail= read.nextLine();
+                            while (!isValidEmail(newEmail)){
+                                System.out.println("email invalido, vuelva a intentar:");
+                                newEmail= read.nextLine();
+                            }
+                            contactList.get(i).setEmail(newEmail);
+                            break;
+                        case 3:
+                            System.out.println("Write the new phone number:");
+                            newPhoneNumber= read.nextLine();
+                            for (int j = 0; j < contactList.size(); j++) {
+                                while (newPhoneNumber.equals(contactList.get(j).getPhone_number())){
+                                    System.out.println("The phone number is the same or already exists, write another:");
+                                    newPhoneNumber= read.nextLine();
+                                }
+                            }
+                            contactList.get(i).setPhone_number(newPhoneNumber);
+                            break;
+                        default:
+                            break;
+                    }
+                }while (option<4);
+                break;
+            } else if (i== contactList.size()-1) {
+                System.out.println("that phone number doesn´t exists");
+            }
+
+
+        }
+        Serialize();
     }
 
     public static void ClearDataBase(){
         contactList.clear();
     }
+
+
 }

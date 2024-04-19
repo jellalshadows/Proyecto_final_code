@@ -12,7 +12,8 @@ public class Main implements Serializable {
             System.out.println("2.Show contacts list");
             System.out.println("3.Search contact");
             System.out.println("4.Delete all contact");
-            System.out.println("5.exit");
+            System.out.println("5.Modify contact");
+            System.out.println("6.exit");
             option=src.nextInt();
 
             switch (option){
@@ -27,10 +28,12 @@ public class Main implements Serializable {
                     break;
                 case 4:
                     ContactList.ClearDataBase();
+                case 5:
+                    ContactList.ModifyContacts();
                 default:
                     break;
             }
-        }while(option<5);
+        }while(option<6);
 
     }
 }
