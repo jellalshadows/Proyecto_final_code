@@ -27,6 +27,12 @@ public class ContactList implements Serializable {
             System.out.println("Phone number:");
             String phoneNumber;
             phoneNumber= read.nextLine();
+        for (int i = 0; i < contactList.size(); i++) {
+           while (phoneNumber.equals(contactList.get(i).getPhone_number())){
+               System.out.println("That phone number already exists, wirte another:");
+               phoneNumber= read.nextLine();
+            }
+        }
             contactList.add(new Contact(name,email,phoneNumber));
             Serialize();
     }
@@ -77,13 +83,18 @@ public class ContactList implements Serializable {
         }catch (FileNotFoundException e){
             System.out.println("No data in database");
         }catch (IOException e){
+            System.out.println(e.getMessage());
             System.out.println("there was error");
         }catch (ClassNotFoundException e){
             System.out.println("Class not found");
         }
     }
 
-    //public static void ModifyContacts(){
+    public static void ModifyContacts(){
+        System.out.println("");
+    }
 
-    //}
+    public static void ClearDataBase(){
+        contactList.clear();
+    }
 }
