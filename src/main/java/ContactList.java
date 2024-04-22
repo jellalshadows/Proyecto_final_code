@@ -11,8 +11,8 @@ public class ContactList implements Serializable {
     * la barra tambien tiene otro significado y hay que escapar tambien asique se usa otra barra y ya deberia estar bien */
     static final String EMAIL_REGEX="^[a-z0-9A-Z.]+@[a-zA-Z]+\\.[a-zA-Z]+$";
     static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
-
     static Scanner read =new Scanner(System.in);
+
     static void AddContacts(){
         System.out.println("Name:");
         String name;
@@ -36,13 +36,11 @@ public class ContactList implements Serializable {
             contactList.add(new Contact(name,email,phoneNumber));
             Serialize();
     }
-
     static void ShowContacts(){
         for (int i = 0; i < contactList.size(); i++) {
             System.out.println(contactList.get(i));
         }
     }
-
     static void SearchContacts(){
         System.out.println("Type the name of the contact you want to search for:");
         String searchContact= read.nextLine();
@@ -57,13 +55,11 @@ public class ContactList implements Serializable {
 
         }
     }
-
     public static boolean isValidEmail(String email) {
         Matcher matcher = pattern.matcher(email);
         boolean a = matcher.matches();
         return matcher.matches();
     }
-
     public static void Serialize(){
         try{
             FileOutputStream fileOutput=new FileOutputStream("ContactList.Data");
@@ -78,7 +74,6 @@ public class ContactList implements Serializable {
         }
 
     }
-
     public static void Deserialize(){
         try {
             FileInputStream fileInput=new FileInputStream("ContactList.Data");
@@ -93,12 +88,8 @@ public class ContactList implements Serializable {
             System.out.println("Class not found");
         }
     }
-
     public static void ModifyContacts(){
         int option;
-        String newPhoneNumber;
-        String newEmail;
-        String newName;
         System.out.println("Write the phone number of the contact that you want to modify:");
         String phone_number= read.nextLine();
 
@@ -114,29 +105,13 @@ public class ContactList implements Serializable {
                     read.nextLine();
                     switch (option){
                         case 1:
-                            System.out.println("Write the new name:");
-                            newName= read.nextLine();
-                            contactList.get(i).setName(newName);
+                            ModifyName(i);
                             break;
                         case 2:
-                            System.out.println("Write the new email:");
-                            newEmail= read.nextLine();
-                            while (!isValidEmail(newEmail)){
-                                System.out.println("email invalido, vuelva a intentar:");
-                                newEmail= read.nextLine();
-                            }
-                            contactList.get(i).setEmail(newEmail);
+                            ModifyEmail(i);
                             break;
                         case 3:
-                            System.out.println("Write the new phone number:");
-                            newPhoneNumber= read.nextLine();
-                            for (int j = 0; j < contactList.size(); j++) {
-                                while (newPhoneNumber.equals(contactList.get(j).getPhone_number())){
-                                    System.out.println("The phone number is the same or already exists, write another:");
-                                    newPhoneNumber= read.nextLine();
-                                }
-                            }
-                            contactList.get(i).setPhone_number(newPhoneNumber);
+                            ModifyPhoneNumber(i);
                             break;
                         default:
                             break;
@@ -151,10 +126,86 @@ public class ContactList implements Serializable {
         }
         Serialize();
     }
-
+    public static void ModifyPhoneNumber(int i){
+        String newPhoneNumber;
+        System.out.println("Write the new phone number:");
+        newPhoneNumber= read.nextLine();
+        for (int j = 0; j < contactList.size(); j++) {
+            while (newPhoneNumber.equals(contactList.get(j).getPhone_number())){
+                System.out.println("The phone number is the same or already exists, write another:");
+                newPhoneNumber= read.nextLine();
+            }
+        }
+        contactList.get(i).setPhone_number(newPhoneNumber);
+    }
+    public static void ModifyEmail(int i){
+        String newEmail;
+        System.out.println("Write the new email:");
+        newEmail= read.nextLine();
+        while (!isValidEmail(newEmail)){
+            System.out.println("email invalido, vuelva a intentar:");
+            newEmail= read.nextLine();
+        }
+        contactList.get(i).setEmail(newEmail);
+    }
+    public static void ModifyName(int i){
+        String newName;
+        System.out.println("Write the new name:");
+        newName= read.nextLine();
+        contactList.get(i).setName(newName);
+    }
     public static void ClearDataBase(){
         contactList.clear();
     }
+    public static void BackupDataBase(){
+        int option_backup;
+
+        do {
+            System.out.println("What do you want to do?:");
+            System.out.println("1.Create Backup");
+            System.out.println("2.Charge Backup");
+            System.out.println("3.exit");
+            option_backup= read.nextInt();
+            read.nextLine();
+            switch (option_backup){
+                case 1:
+                    CreateBackup();
+                    break;
+                case 2:
+                    ChargeBackup();
+                    break;
+                default:
+                    break;
+            }
+        }while(option_backup<2);
+    }
+    public static void CreateBackup(){
+
+        try{
+            FileOutputStream backupFile=new FileOutputStream("Backup\\Backup.Data");
+            ObjectOutputStream backupobject=new ObjectOutputStream(backupFile);
+            backupobject.writeObject(contactList);
+        }catch (FileNotFoundException e){
+            System.out.println("File not found");
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+        }
 
 
+    }
+    public static void ChargeBackup(){
+        try {
+            FileInputStream backupFile=new FileInputStream("Backup\\Backup.Data");
+            ObjectInputStream backupobject=new ObjectInputStream(backupFile);
+            contactList = (ArrayList<Contact>) backupobject.readObject();
+        }catch (FileNotFoundException e){
+            System.out.println("No data in database");
+        }catch (IOException e){
+            System.out.println(e.getMessage());
+            System.out.println("there was error");
+        }catch (ClassNotFoundException e){
+            System.out.println("Class not found");
+        }
+        Serialize();
+    }
 }
