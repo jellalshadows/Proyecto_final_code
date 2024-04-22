@@ -13,20 +13,27 @@ public class ContactList implements Serializable {
     static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
     static Scanner read =new Scanner(System.in);
 
+    /**
+     * Metodo vacio para añadir nuevos contactos a la lista, contiene las variables "name", "email" y "phoneNumber"
+     * donde se insertaran los datos de los nuevos contactos
+     */
     static void AddContacts(){
-        System.out.println("Name:");
+        String phoneNumber;
         String name;
+        String email;
+
+        System.out.println("Name:");
         name= read.nextLine();
         System.out.println("e-mail:");
-        String email = read.nextLine();
+        email = read.nextLine();
 
         while (!isValidEmail(email)){
             System.out.println("email invalido, vuelva a intentar:");
             email= read.nextLine();
         }
             System.out.println("Phone number:");
-            String phoneNumber;
             phoneNumber= read.nextLine();
+
         for (int i = 0; i < contactList.size(); i++) {
            while (phoneNumber.equals(contactList.get(i).getPhone_number())){
                System.out.println("That phone number already exists, wirte another:");
@@ -34,7 +41,28 @@ public class ContactList implements Serializable {
             }
         }
             contactList.add(new Contact(name,email,phoneNumber));
+
             Serialize();
+    }
+
+    /**
+     * Metodo vacio para eliminar contactos, el metodo contiene la variable phoneToDelete, a travez del cual se comparara si coincide,
+     * en caso de coincidir, elimina el contacto de la lista
+     */
+    static void DeleteContact(){
+        String phoneToDelete;
+        System.out.println("Write the phone number that you want to delete:");
+        phoneToDelete=read.nextLine();
+
+        for (int i = 0; i < contactList.size(); i++) {
+            if (phoneToDelete.equals(contactList.get(i).getPhone_number())){
+                contactList.remove(i);
+                i--;
+            }else if (contactList.size()-1==i){
+                System.out.println("el numero no existe");
+            }
+        }
+        Serialize();
     }
     static void ShowContacts(){
         for (int i = 0; i < contactList.size(); i++) {
@@ -208,4 +236,5 @@ public class ContactList implements Serializable {
         }
         Serialize();
     }
+
 }

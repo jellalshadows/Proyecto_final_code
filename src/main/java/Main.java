@@ -14,7 +14,9 @@ public class Main implements Serializable {
             System.out.println("4.Delete all contact");
             System.out.println("5.Modify contact");
             System.out.println("6.Backup");
-            System.out.println("7.Exit");
+            System.out.println("7.Delete contact");
+            System.out.println("8.Exit");
+
             option=src.nextInt();
             switch (option){
                 case 1:
@@ -35,9 +37,11 @@ public class Main implements Serializable {
                     case 6:
                         ContactList.BackupDataBase();
                         break;
+                case 7:
+                    ContactList.DeleteContact();
                 default:
                     break;
             }
-        }while(option<7);
+        }while(option<8);
     }
 }
