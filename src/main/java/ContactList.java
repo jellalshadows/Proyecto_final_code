@@ -196,11 +196,10 @@ public class ContactList implements Serializable {
                 // En caso de que el bucle halla iterado y no halla conseguido coincidencias, enviar un mensaje reportandolo
             } else if (i== contactList.size()-1) {
                 System.out.println("that phone number doesn´t exists");
-            }
+                }
         }
         Serialize();
     }
-
     /**
      * Metodo que permite modificar el numero de telefono, este metodo se encuentra inicializado en el metodo anterior, contiene
      * una variable llamada "newPhoneNumber" que contendra el nuevo numero de telefono que sera insertado en la propiedad "PhoneNumber"
@@ -222,7 +221,6 @@ public class ContactList implements Serializable {
         // Modificar el numero de telefono
         contactList.get(i).setPhone_number(newPhoneNumber);
     }
-
     /**
      * Metodo que permite modificar el email, este metodo se encuentra inicializado en el metodo "ModifyContact", contiene
      * una variable llamada "newEmail" que contendra el nuevo correo electronico que sera insertado en la propiedad "Email"
@@ -256,7 +254,6 @@ public class ContactList implements Serializable {
         // Modificar el nombre
         contactList.get(i).setName(newName);
     }
-
     /**
      * Metodo que elimina por completo todos los contactos que esten contenidos en el arraylist "contactList"
      */
@@ -264,7 +261,6 @@ public class ContactList implements Serializable {
         // Eliminar todos los elementos del ArrayList
         contactList.clear();
     }
-
     /**
      * Metodo que, a travez de un menu, le brinda al usuario la posibilidad de crear y cargar una copia de seguridad, este metodo
      * tiene metodos inicializados que seran explicados mas abajo. Contiene la variable "Option_backup" donde el usuario escribirá
@@ -294,7 +290,6 @@ public class ContactList implements Serializable {
             }
         }while(option_backup<2);
     }
-
     /**
      * Metodo que guarda en un archivo llamado "Backup.Data" una copia de seguridad del programa
      * el metodo en cuestion escribe
@@ -311,8 +306,6 @@ public class ContactList implements Serializable {
         }catch (IOException e){
             System.out.println(e.getMessage());
         }
-
-
     }
     /**
      * Metodo que carga la ultima copia de seguridad generada, introduce los datos del archivo especificado que contiene un arraylist
@@ -334,5 +327,4 @@ public class ContactList implements Serializable {
         }
         Serialize();
     }
-
 }
