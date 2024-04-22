@@ -41,6 +41,4 @@ public class Contact implements Serializable {
         String salida=String.format(" name: %s \n email: %s \n phone number: %s \n\n", name, email,phone_number);
         return salida;
     }
-
-
 }

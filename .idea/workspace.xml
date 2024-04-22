@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e70ff384-a6b7-4ebd-8da6-df3daff8b221" name="Changes" comment="se agrego el metodo delete y algun comentario javadoc">
+    <list default="true" id="e70ff384-a6b7-4ebd-8da6-df3daff8b221" name="Changes" comment="se añadieron los comentarios para el javadog">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ContactList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ContactList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Backup/Backup.Data" beforeDir="false" afterPath="$PROJECT_DIR$/Backup/Backup.Data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ContactList.Data" beforeDir="false" afterPath="$PROJECT_DIR$/ContactList.Data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Contact.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713771290437</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="se añadieron los comentarios para el javadog">
+      <created>1713783784825</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1713783784825</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,6 +298,7 @@
     <MESSAGE value="añadido metodos para guardar y cargar copias de seguridad, division del metodo modificar en metodos mas pequeños" />
     <MESSAGE value="se me olvido guardar este nuevo archivo" />
     <MESSAGE value="se agrego el metodo delete y algun comentario javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="se agrego el metodo delete y algun comentario javadoc" />
+    <MESSAGE value="se añadieron los comentarios para el javadog" />
+    <option name="LAST_COMMIT_MESSAGE" value="se añadieron los comentarios para el javadog" />
   </component>
 </project>
