@@ -20,6 +20,7 @@ public class Main implements Serializable {
     public static void main(String[] args) {
         int option;
         ContactList.Deserialize();
+            // Menu de opciones que le permitira al usuario interactuar con el programa
             try {
                 do{
 
@@ -32,7 +33,9 @@ public class Main implements Serializable {
                     System.out.println("6.Backup");
                     System.out.println("7.Delete contact");
                     System.out.println("8.Exit");
+                    // Pedir una opcion al usuario
                     option=src.nextInt();
+                    // Dependiendo de la opcion que elija el usario se llamara a su metodo correspondiente
                     switch (option){
                         case 1:
                             ContactList.AddContacts();

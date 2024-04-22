@@ -18,7 +18,6 @@ public class ContactList implements Serializable {
     static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
     // Scanner para entrada de usuario
     static Scanner read =new Scanner(System.in);
-
     /**
      * Metodo vacio para añadir nuevos contactos a la lista, contiene las variables "name", "email" y "phoneNumber"
      * donde se insertaran los datos de los nuevos contactos
@@ -52,7 +51,6 @@ public class ContactList implements Serializable {
             contactList.add(new Contact(name,email,phoneNumber));
             Serialize();
     }
-
     /**
      * Metodo vacio para eliminar contactos, el metodo contiene la variable phoneToDelete, a travez del cual se comparara si coincide,
      * en caso de coincidir, elimina el contacto de la lista
@@ -74,7 +72,6 @@ public class ContactList implements Serializable {
         }
         Serialize();
     }
-
     /**
      * Metodo para mostrar los contactos ubicados en la lista de contactos
      */
@@ -84,7 +81,6 @@ public class ContactList implements Serializable {
             System.out.println(contactList.get(i));
         }
     }
-
     /**
      * Metodo para buscar un contacto en la lista, contiene una variable llamada "searchContact" que contendra el nombre del contacto que se quiere buscar
      * si dicho nombre coincide con el nombre de alguno de los contactos contenido en el array, lo muestra.
@@ -104,7 +100,6 @@ public class ContactList implements Serializable {
 
         }
     }
-
     /**
      * Metodo para validar el email que se quiera introducir a un contacto, a travez de una expresion regular que dira
      * que caracteres son permitidos en el email
@@ -118,7 +113,6 @@ public class ContactList implements Serializable {
         boolean a = matcher.matches();
         return matcher.matches();
     }
-
     /**
      * Metodo que guarda en un archivo llamado "ContactList.Data" la lista de contacto para que no se pierda cada vez
      * que salgamos y entremos en el programa, contiene un objeto de tipo "FileOutputStream" que contendra la direccion
@@ -126,6 +120,7 @@ public class ContactList implements Serializable {
      * en el fichero el arraylist "contactList".
      */
     public static void Serialize(){
+        // Serializar la lista de contactos y guardarla en un archivo
         try{
             FileOutputStream fileOutput=new FileOutputStream("ContactList.Data");
             ObjectOutputStream objectOutput=new ObjectOutputStream(fileOutput);
@@ -137,14 +132,13 @@ public class ContactList implements Serializable {
         }catch (IOException e){
             System.out.println("there was error");
         }
-
     }
-
     /**
      * Metodo que carga el contenido del archivo especificado en el obgeto de tipo "FileInputStream",
      * introduce los datos del archivo especificado que contiene un arraylist en el arraylist "contactList" del programa
      */
     public static void Deserialize(){
+        // Cargar la lista de contactos desde un archivo serializado
         try {
             FileInputStream fileInput=new FileInputStream("ContactList.Data");
             ObjectInputStream objectInput=new ObjectInputStream(fileInput);
@@ -168,10 +162,12 @@ public class ContactList implements Serializable {
      */
     public static void ModifyContacts(){
         int option;
+        // Solicitar al usuario el número de teléfono del contacto a modificar
         System.out.println("Write the phone number of the contact that you want to modify:");
         String phone_number= read.nextLine();
-
+        // Mostrar un menú de opciones para modificar el contacto seleccionado, en caso de que exista
         for (int i = 0; i < contactList.size(); i++) {
+            // Comprobar que el numero de telefono proporcionado existe
             if (contactList.get(i).getPhone_number().equals(phone_number)){
                 do {
                     System.out.println("What do you want to modify?:");
@@ -181,6 +177,7 @@ public class ContactList implements Serializable {
                     System.out.println("4.exit");
                     option= read.nextInt();
                     read.nextLine();
+                    // Dependiendo de la opcion que elija el usuario se llamara a un metodo o a otro
                     switch (option){
                         case 1:
                             ModifyName(i);
@@ -196,11 +193,10 @@ public class ContactList implements Serializable {
                     }
                 }while (option<4);
                 break;
+                // En caso de que el bucle halla iterado y no halla conseguido coincidencias, enviar un mensaje reportandolo
             } else if (i== contactList.size()-1) {
                 System.out.println("that phone number doesn´t exists");
             }
-
-
         }
         Serialize();
     }
@@ -213,14 +209,17 @@ public class ContactList implements Serializable {
      */
     public static void ModifyPhoneNumber(int i){
         String newPhoneNumber;
+        // Solicitar al usuario el nuevo numero de telefono
         System.out.println("Write the new phone number:");
         newPhoneNumber= read.nextLine();
+        //Iterar por el ArrayList para verificar que el telefono proporcionado no exista, en caso de existir, reportarlo
         for (int j = 0; j < contactList.size(); j++) {
             while (newPhoneNumber.equals(contactList.get(j).getPhone_number())){
                 System.out.println("The phone number is the same or already exists, write another:");
                 newPhoneNumber= read.nextLine();
             }
         }
+        // Modificar el numero de telefono
         contactList.get(i).setPhone_number(newPhoneNumber);
     }
 
@@ -232,12 +231,15 @@ public class ContactList implements Serializable {
      */
     public static void ModifyEmail(int i){
         String newEmail;
+        // Solicitar al usuario el nuevo correo electronico
         System.out.println("Write the new email:");
         newEmail= read.nextLine();
+        // Comprobar que el email es valido
         while (!isValidEmail(newEmail)){
             System.out.println("email invalido, vuelva a intentar:");
             newEmail= read.nextLine();
         }
+        //modificar el email
         contactList.get(i).setEmail(newEmail);
     }
     /**
@@ -248,8 +250,10 @@ public class ContactList implements Serializable {
      */
     public static void ModifyName(int i){
         String newName;
+        // Solicitar al usuario el nuevo nombre
         System.out.println("Write the new name:");
         newName= read.nextLine();
+        // Modificar el nombre
         contactList.get(i).setName(newName);
     }
 
@@ -257,6 +261,7 @@ public class ContactList implements Serializable {
      * Metodo que elimina por completo todos los contactos que esten contenidos en el arraylist "contactList"
      */
     public static void ClearDataBase(){
+        // Eliminar todos los elementos del ArrayList
         contactList.clear();
     }
 
@@ -267,14 +272,16 @@ public class ContactList implements Serializable {
      */
     public static void BackupDataBase(){
         int option_backup;
-
+        // Menu de Opciones de copias de seguridad
         do {
             System.out.println("What do you want to do?:");
             System.out.println("1.Create Backup");
             System.out.println("2.Charge Backup");
             System.out.println("3.exit");
+            // Solicitar al usuario la opcion
             option_backup= read.nextInt();
             read.nextLine();
+            // Dependiendo de la opcion elejitda, llamara al metodo
             switch (option_backup){
                 case 1:
                     CreateBackup();
@@ -294,7 +301,7 @@ public class ContactList implements Serializable {
      * en el fichero el arraylist "contactList".
      */
     public static void CreateBackup(){
-
+        // Serializar la lista de contactos y guardarla en un archivo
         try{
             FileOutputStream backupFile=new FileOutputStream("Backup\\Backup.Data");
             ObjectOutputStream backupobject=new ObjectOutputStream(backupFile);
@@ -312,6 +319,7 @@ public class ContactList implements Serializable {
      * en el arraylist "contactList" del programa
      */
     public static void ChargeBackup(){
+        // Cargar la lista de contactos desde un archivo serializado
         try {
             FileInputStream backupFile=new FileInputStream("Backup\\Backup.Data");
             ObjectInputStream backupobject=new ObjectInputStream(backupFile);
