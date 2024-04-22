@@ -3,7 +3,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+    /**
+     * Clase ContactList que gestiona una lista de contactos.
+     * Implementa Serializable para admitir la serialización de objetos.
+     */
 public class ContactList implements Serializable {
+    // Lista de contactos almacenada en un ArrayList
     static private ArrayList<Contact> contactList=new ArrayList<>();
     /*la expresion regular de abajo se utiliza para comprobar que existe un punto y un arroba en la expresion proporcionada y que ademas tanto antes
     * del @ como despues y luego del punto, existe al menos una o mas letras mayusculas o minusculas y que pueden haber numeros dentro de la expresion,
@@ -11,6 +16,7 @@ public class ContactList implements Serializable {
     * la barra tambien tiene otro significado y hay que escapar tambien asique se usa otra barra y ya deberia estar bien */
     static final String EMAIL_REGEX="^[a-z0-9A-Z.]+@[a-zA-Z]+\\.[a-zA-Z]+$";
     static final Pattern pattern = Pattern.compile(EMAIL_REGEX);
+    // Scanner para entrada de usuario
     static Scanner read =new Scanner(System.in);
 
     /**
@@ -18,30 +24,32 @@ public class ContactList implements Serializable {
      * donde se insertaran los datos de los nuevos contactos
      */
     static void AddContacts(){
+
         String phoneNumber;
         String name;
         String email;
-
+        // Solicitar nombre, correo electrónico
         System.out.println("Name:");
         name= read.nextLine();
         System.out.println("e-mail:");
         email = read.nextLine();
-
+        // Validar el correo electrónico ingresado
         while (!isValidEmail(email)){
             System.out.println("email invalido, vuelva a intentar:");
             email= read.nextLine();
         }
+        // Solicitar número de teléfono al usuario
             System.out.println("Phone number:");
             phoneNumber= read.nextLine();
-
+        // Validar el numero de telefono ingresado
         for (int i = 0; i < contactList.size(); i++) {
            while (phoneNumber.equals(contactList.get(i).getPhone_number())){
                System.out.println("That phone number already exists, wirte another:");
                phoneNumber= read.nextLine();
             }
         }
+        // Agregar el nuevo contacto a la lista y serializar
             contactList.add(new Contact(name,email,phoneNumber));
-
             Serialize();
     }
 
@@ -51,10 +59,12 @@ public class ContactList implements Serializable {
      */
     static void DeleteContact(){
         String phoneToDelete;
+        // Solicitar al usuario el número de teléfono del contacto a eliminar
         System.out.println("Write the phone number that you want to delete:");
         phoneToDelete=read.nextLine();
-
+        // Eliminar el contacto de la lista y serializar
         for (int i = 0; i < contactList.size(); i++) {
+            // Comprobar que el numero de telefono proporcionado existe en el arraylist
             if (phoneToDelete.equals(contactList.get(i).getPhone_number())){
                 contactList.remove(i);
                 i--;
@@ -69,6 +79,7 @@ public class ContactList implements Serializable {
      * Metodo para mostrar los contactos ubicados en la lista de contactos
      */
     static void ShowContacts(){
+        // Iterar sobre la lista de contactos y mostrar cada contacto
         for (int i = 0; i < contactList.size(); i++) {
             System.out.println(contactList.get(i));
         }
@@ -79,9 +90,10 @@ public class ContactList implements Serializable {
      * si dicho nombre coincide con el nombre de alguno de los contactos contenido en el array, lo muestra.
      */
     static void SearchContacts(){
+        // Solicitar al usuario el nombre del contacto a buscar
         System.out.println("Type the name of the contact you want to search for:");
         String searchContact= read.nextLine();
-
+        // Buscar el contacto por nombre y mostrarlo si se encuentra
         for (int i = 0; i < contactList.size(); i++) {
             if (searchContact.equals(contactList.get(i).getName())){
                 System.out.println(contactList.get(i));
@@ -101,6 +113,7 @@ public class ContactList implements Serializable {
      * @return true si cumple con la expresion regular
      */
     public static boolean isValidEmail(String email) {
+        // Validar la dirección de correo electrónico con la expresión regular
         Matcher matcher = pattern.matcher(email);
         boolean a = matcher.matches();
         return matcher.matches();

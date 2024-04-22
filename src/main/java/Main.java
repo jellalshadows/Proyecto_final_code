@@ -1,3 +1,5 @@
+import com.sun.jdi.connect.Connector;
+
 import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -20,6 +22,7 @@ public class Main implements Serializable {
         ContactList.Deserialize();
             try {
                 do{
+
                     System.out.println("What do you want to do?:");
                     System.out.println("1.Add new contact");
                     System.out.println("2.Show contacts list");
