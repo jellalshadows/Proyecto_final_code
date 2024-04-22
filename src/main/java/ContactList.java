@@ -64,11 +64,20 @@ public class ContactList implements Serializable {
         }
         Serialize();
     }
+
+    /**
+     * Metodo para mostrar los contactos ubicados en la lista de contactos
+     */
     static void ShowContacts(){
         for (int i = 0; i < contactList.size(); i++) {
             System.out.println(contactList.get(i));
         }
     }
+
+    /**
+     * Metodo para buscar un contacto en la lista, contiene una variable llamada "searchContact" que contendra el nombre del contacto que se quiere buscar
+     * si dicho nombre coincide con el nombre de alguno de los contactos contenido en el array, lo muestra.
+     */
     static void SearchContacts(){
         System.out.println("Type the name of the contact you want to search for:");
         String searchContact= read.nextLine();
@@ -83,11 +92,26 @@ public class ContactList implements Serializable {
 
         }
     }
+
+    /**
+     * Metodo para validar el email que se quiera introducir a un contacto, a travez de una expresion regular que dira
+     * que caracteres son permitidos en el email
+     * @param email el email que se quiera validar
+     * @return false si no cumple con la expresion regular
+     * @return true si cumple con la expresion regular
+     */
     public static boolean isValidEmail(String email) {
         Matcher matcher = pattern.matcher(email);
         boolean a = matcher.matches();
         return matcher.matches();
     }
+
+    /**
+     * Metodo que guarda en un archivo llamado "ContactList.Data" la lista de contacto para que no se pierda cada vez
+     * que salgamos y entremos en el programa, contiene un objeto de tipo "FileOutputStream" que contendra la direccion
+     * a donde queremos enviar el archivo incluido el nombre del archivo y su extension, el metodo en cuestion escribe
+     * en el fichero el arraylist "contactList".
+     */
     public static void Serialize(){
         try{
             FileOutputStream fileOutput=new FileOutputStream("ContactList.Data");
@@ -102,6 +126,11 @@ public class ContactList implements Serializable {
         }
 
     }
+
+    /**
+     * Metodo que carga el contenido del archivo especificado en el obgeto de tipo "FileInputStream",
+     * introduce los datos del archivo especificado que contiene un arraylist en el arraylist "contactList" del programa
+     */
     public static void Deserialize(){
         try {
             FileInputStream fileInput=new FileInputStream("ContactList.Data");
@@ -116,6 +145,14 @@ public class ContactList implements Serializable {
             System.out.println("Class not found");
         }
     }
+
+    /**
+     * Metodo que modifica el contacto especificado a travez de la variable "phone_number" que contendra un numero de
+     * telefono especificado por el usuario, en caso de que coincida con algun numero de telefono contenido en la lista
+     * de contactos, procedera a mostrar un menu con las diferentes opciones que podra modificar; email, nombre y numero
+     * de telefono, en caso de que el bucle que recorre la lista, llegue al final y no halla encontrado ninguna coincidencia
+     * saltara un mensaje especificando que ese numero de telefono no existe en la lista
+     */
     public static void ModifyContacts(){
         int option;
         System.out.println("Write the phone number of the contact that you want to modify:");
@@ -154,6 +191,13 @@ public class ContactList implements Serializable {
         }
         Serialize();
     }
+
+    /**
+     * Metodo que permite modificar el numero de telefono, este metodo se encuentra inicializado en el metodo anterior, contiene
+     * una variable llamada "newPhoneNumber" que contendra el nuevo numero de telefono que sera insertado en la propiedad "PhoneNumber"
+     * del obgeto que halla coincidido con la comprobacion realizada en el metodo "ModifyContacts".
+     * @param i aqui estara la variable i del bucle for del metodo "ModifyContacts" que itera a travez del arraylist "contactList".
+     */
     public static void ModifyPhoneNumber(int i){
         String newPhoneNumber;
         System.out.println("Write the new phone number:");
@@ -166,6 +210,13 @@ public class ContactList implements Serializable {
         }
         contactList.get(i).setPhone_number(newPhoneNumber);
     }
+
+    /**
+     * Metodo que permite modificar el email, este metodo se encuentra inicializado en el metodo "ModifyContact", contiene
+     * una variable llamada "newEmail" que contendra el nuevo correo electronico que sera insertado en la propiedad "Email"
+     * del obgeto que halla coincidido con la comprobacion realizada en el metodo "ModifyContacts".
+     * @param i aqui estara la variable i del bucle for del metodo "ModifyContacts" que itera a travez del arraylist "contactList".
+     */
     public static void ModifyEmail(int i){
         String newEmail;
         System.out.println("Write the new email:");
@@ -176,15 +227,31 @@ public class ContactList implements Serializable {
         }
         contactList.get(i).setEmail(newEmail);
     }
+    /**
+     * Metodo que permite modificar el nombre, este metodo se encuentra inicializado en el metodo "ModifyContact", contiene
+     * una variable llamada "newName" que contendra el nuevo nombre que será insertado en la propiedad "Name"
+     * del obgeto que halla coincidido con la comprobacion realizada en el metodo "ModifyContacts".
+     * @param i aqui estara la variable i del bucle for del metodo "ModifyContacts" que itera a travez del arraylist "contactList".
+     */
     public static void ModifyName(int i){
         String newName;
         System.out.println("Write the new name:");
         newName= read.nextLine();
         contactList.get(i).setName(newName);
     }
+
+    /**
+     * Metodo que elimina por completo todos los contactos que esten contenidos en el arraylist "contactList"
+     */
     public static void ClearDataBase(){
         contactList.clear();
     }
+
+    /**
+     * Metodo que, a travez de un menu, le brinda al usuario la posibilidad de crear y cargar una copia de seguridad, este metodo
+     * tiene metodos inicializados que seran explicados mas abajo. Contiene la variable "Option_backup" donde el usuario escribirá
+     * la opcion que le sea conveniente.
+     */
     public static void BackupDataBase(){
         int option_backup;
 
@@ -207,6 +274,12 @@ public class ContactList implements Serializable {
             }
         }while(option_backup<2);
     }
+
+    /**
+     * Metodo que guarda en un archivo llamado "Backup.Data" una copia de seguridad del programa
+     * el metodo en cuestion escribe
+     * en el fichero el arraylist "contactList".
+     */
     public static void CreateBackup(){
 
         try{
@@ -221,6 +294,10 @@ public class ContactList implements Serializable {
 
 
     }
+    /**
+     * Metodo que carga la ultima copia de seguridad generada, introduce los datos del archivo especificado que contiene un arraylist
+     * en el arraylist "contactList" del programa
+     */
     public static void ChargeBackup(){
         try {
             FileInputStream backupFile=new FileInputStream("Backup\\Backup.Data");

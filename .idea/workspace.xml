@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e70ff384-a6b7-4ebd-8da6-df3daff8b221" name="Changes" comment="se me olvido guardar este nuevo archivo">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e70ff384-a6b7-4ebd-8da6-df3daff8b221" name="Changes" comment="se agrego el metodo delete y algun comentario javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ContactList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ContactList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
@@ -218,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713768604460</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="se agrego el metodo delete y algun comentario javadoc">
+      <created>1713771290437</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1713771290437</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +288,7 @@
     <MESSAGE value="añadido metodo para modificar contactos" />
     <MESSAGE value="añadido metodos para guardar y cargar copias de seguridad, division del metodo modificar en metodos mas pequeños" />
     <MESSAGE value="se me olvido guardar este nuevo archivo" />
-    <option name="LAST_COMMIT_MESSAGE" value="se me olvido guardar este nuevo archivo" />
+    <MESSAGE value="se agrego el metodo delete y algun comentario javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="se agrego el metodo delete y algun comentario javadoc" />
   </component>
 </project>

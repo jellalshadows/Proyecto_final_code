@@ -3,6 +3,17 @@ import java.util.Scanner;
 
 public class Main implements Serializable {
     static Scanner src=new Scanner(System.in);
+
+    /**
+     * Metodo que le brinda al usuario un menu que contiene opciones como "añadir nuevo contacto", "mostrar los contactos de la lista",
+     * "buscar contacto", "eliminar contacto", "eliminar todos los contactos de la lista", "modificar contacto", "copa de seguridad",
+     * "eliminar un contacto" o salir del programa. Este metodo llama a los diferentes metodos que corresponden a cada una de las opciones
+     * brindadas por el menu, dichos metodos se encuentran comentado en su respectiva clase "ContactList".
+     *
+     * @param args El parámetro 'args' representa los argumentos de línea de comandos pasados al programa.
+     * En este método, podemos acceder a estos argumentos a través del arreglo 'args'. Por ejemplo, si ejecutamos el programa con
+     * "java MiClase argumento1 argumento2", 'args' contendrá {"argumento1", "argumento2"}.
+     */
     public static void main(String[] args) {
         int option;
         ContactList.Deserialize();
